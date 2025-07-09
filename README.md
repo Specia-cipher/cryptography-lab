@@ -43,62 +43,6 @@ python hashing_tool.py -m "Hello, world!"
 python hashing_tool.py -f testfile.txt -a sha512 -o base64 -v
 
 
-Perfect. That’s the professional developer way—every tool feels like a mini-project with its own little “signature block” at the end.
-
-Here’s your redesigned, future-proof README.md:
-
-
----
-
-# 🔒 Cryptography Lab
-
-A hands-on Python lab for exploring cryptography and security concepts. Built for tinkering, learning, and demonstrating skills in practical cryptography.  
-
-This lab runs seamlessly in Termux (Android) and Linux environments—making cryptographic experiments possible even from a mobile setup.  
-
----
-
-## 🚀 Current Tools
-- 🔐 Hashing Tool — Multi-algorithm hashing with CLI flexibility.
-- 🗝 Symmetric Encryption Tool — Simple AES encryption and decryption.
-
-## 📡 Roadmap
-- Asymmetric Encryption (RSA, ECC)
-- Digital Signatures and Verification
-- Key Exchange Protocols (Diffie-Hellman, etc.)
-- Steganography Utilities (Hide data in images, audio)
-- File encryption/decryption utilities
-- Password managers & key derivation functions (PBKDF2, bcrypt)
-
----
-
-## 📂 Tools
-
-### 🔐 Hashing Tool
-A flexible CLI utility for hashing strings or files using multiple algorithms.
-
-**Features**
-- Supports SHA-1, SHA-256, SHA-3, BLAKE2, MD5, and more.
-- Optional salting for password-like hashing.
-- Output formats: HEX or Base64.
-- Verbose mode for detailed outputs.
-- Lists all supported algorithms.
-
-**Usage**
-```bash
-# List available algorithms
-python hashing_tool.py --list
-
-# Hash a simple message (default: sha256)
-python hashing_tool.py -m "Hello, world!"
-
-# Hash a file with SHA-512 and base64 output
-python hashing_tool.py -f testfile.txt -a sha512 -o base64 -v
-
-Author Sanni Babatunde Idris (Specia-cipher)
-🔗 GitHub | LinkedIn
-
-
 ---
 
 🗝 Symmetric Encryption Tool
@@ -187,8 +131,55 @@ Example Run
 🔗 GitHub • LinkedIn • 📧 sannifreelancer@gmail.com
 
 
----Next stop ECC
+---
 
+---
+
+### 3️⃣ ECC Tool (`ecc_tool.py`)
+
+Elliptic Curve Cryptography (ECC) utilities for key generation, digital signing, and signature verification.
+
+#### 📦 Features
+- Generate ECC private and public key pairs.
+- Sign messages and save signatures to file (`signature.sig`) and base64 format (`signature.b64`).
+- Verify signatures from file or base64 strings.
+
+#### ⚡ Usage
+
+```bash
+# Generate ECC key pair
+python ecc_tool.py --generate-keys
+
+# Sign a message
+python ecc_tool.py --sign "Hello ECC mobile lab!"
+
+# Verify signature from saved file
+python ecc_tool.py --verify-file "Hello ECC mobile lab!" signature.sig
+
+# Verify signature from base64 string
+python ecc_tool.py --verify-base64 "Hello ECC mobile lab!" "<your_base64_signature>"
+
+---
+
+📁 Files Generated
+
+ecc_private_key.pem: ECC private key.
+
+ecc_public_key.pem: ECC public key.
+
+signature.sig: Binary signature file.
+
+signature.b64: Base64-encoded signature.
+
+
+✍️ Author
+
+Sanni Babatunde Idris (Specia-cipher)
+GitHub • LinkedIn
+
+---
+
+#Next stop here 
 ---
 
 📝 Development Environment
