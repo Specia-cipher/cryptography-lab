@@ -12,8 +12,8 @@ This lab runs seamlessly in Termux (Android) and Linux environments—making cry
 
 ## 📡 Roadmap
 ##- Asymmetric Encryption (RSA, ECC)
-- Digital Signatures and Verification
-- Key Exchange Protocols (Diffie-Hellman, etc.)
+##- Digital Signatures and Verification
+##- Key Exchange Protocols (Diffie-Hellman, etc.)
 - File encryption/decryption utilities
 - Password managers & key derivation functions (PBKDF2, bcrypt)
 
@@ -179,7 +179,111 @@ GitHub • LinkedIn
 
 ---
 
-#Next stop here 
+## 🔏 RSA Digital Signature Tool
+
+A modular tool for generating RSA signing keys, signing messages, and verifying signatures.
+
+### Features
+- Generate RSA signing key pair.
+- Sign any message string.
+- Verify signatures from `.sig` or base64 strings.
+
+### Usage
+
+**Generate keys:**
+```bash
+python rsa_sign_tool.py --generate-keys
+
+## Sign a message
+python rsa_sign_tool.py --sign "Hello RSA signing"
+
+## Verify signature from file
+python rsa_sign_tool.py --verify "Hello RSA signing" rsa_signature.sig
+
+## Verify signature from Base64
+python rsa_sign_tool.py --verify-base64 "Hello RSA signing" "<base64_signature>"
+
+---
+
+
+## ECC Digital Signature Tool
+
+A modular tool for Elliptic Curve signing and verification.
+
+Features
+
+Generate ECC signing key pair.
+
+Sign any message string.
+
+Verify signatures from .sig or base64 strings.
+
+
+Usage
+
+## Generate keys 
+python ecc_sign_tool.py --generate-keys
+
+##Sign a message
+
+python ecc_sign_tool.py --sign "Hello ECC signing"
+
+## Verify signature from file:
+
+python ecc_sign_tool.py --verify "Hello ECC signing" ecc_signature.sig
+
+#Verify signature from base64:
+
+python ecc_sign_tool.py --verify-base64 "Hello ECC signing" "<base64_signature>"
+
+
+---
+
+## Diffie-Hellman Key Exchange Tool
+
+This tool demonstrates the classic Diffie-Hellman (DH) key exchange protocol.
+
+Features
+
+#Generate DH parameters once.
+
+Generate key pairs for participants (Alice & Bob).
+
+Compute shared secret securely.
+
+Verbose debugging to understand the process.
+
+
+Usage
+
+## Generate DH parameters:
+
+python diffie_hell_tool.py --generate-params
+
+##Generate key pair (run for Alice & Bob):
+
+python diffie_hell_tool.py --generate-keys
+
+##Compute shared secret (Alice using Bob’s public key):
+
+python diffie_hell_tool.py --compute-secret bob_public.pem --verbose
+
+## Compute  shared secret (Bob using Alice’s public key):
+
+python diffie_hell_tool.py --compute-secret alice_public.pem --verbose
+
+## Compare secrets:
+
+cmp alice_secret.bin bob_secret.bin && echo "[+] Secrets match!"
+
+
+---
+
+👨🏽‍💻 Created by Sanni Babatunde Idris (Specia-cipher)
+📂 GitHub Repo
+📧 sannifreelancer@gmail.com
+🔗 LinkedIn
+
 ---
 
 📝 Development Environment
