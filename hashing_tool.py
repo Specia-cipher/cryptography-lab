@@ -5,7 +5,7 @@ def hash_message(message, algorithm='sha256'):
     try:
         hash_func = hashlib.new(algorithm)
     except ValueError:
-        print(f"Error: Unsupported hash algorithm '{algorithm}'. Using SHA-256 instead.")
+        print(f"Warning: Unsupported algorithm '{algorithm}'. Using SHA-256 instead.")
         hash_func = hashlib.sha256()
     hash_func.update(message.encode())
     return hash_func.hexdigest()
@@ -23,3 +23,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
