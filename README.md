@@ -11,7 +11,7 @@ This lab runs seamlessly in Termux (Android) and Linux environments—making cry
 - 🗝 Symmetric Encryption Tool — Simple AES encryption and decryption.
 
 ## 📡 Roadmap
-- Asymmetric Encryption (RSA, ECC)
+##- Asymmetric Encryption (RSA, ECC)
 - Digital Signatures and Verification
 - Key Exchange Protocols (Diffie-Hellman, etc.)
 - File encryption/decryption utilities
@@ -133,10 +133,61 @@ Author Sanni Babatunde Idris (Specia-cipher)
 
 ---
 
-📦 Additions
 
-(Future tools will appear here in this format)
+## Roadmap checklist 
 
+
+## 🔐 RSA Tool
+
+A command-line utility to generate RSA keys, encrypt messages, and decrypt ciphertexts.
+
+### Features
+- Generate 2048-bit RSA key pair (`private_key.pem`, `public_key.pem`)
+- Encrypt messages and save to file (`encrypted.bin`) or view as base64
+- Decrypt ciphertexts from files or directly from base64 strings
+- Built-in error handling for missing keys and malformed inputs
+
+### Usage
+
+#### Generate RSA Keys
+```bash
+python rsa_tool.py --generate-keys
+
+## Encrypt a Message
+
+python rsa_tool.py --encrypt "Hello RSA from the mobile lab"
+
+## Decrypt from File
+
+python rsa_tool.py --decrypt-file encrypted.bin
+
+##Decrypt from Base64 String
+
+python rsa_tool.py --decrypt-string "paste_base64_ciphertext_here"
+
+
+---
+
+Example Run
+
+[+] RSA keys generated and saved as private_key.pem and public_key.pem
+[+] Message encrypted and saved to encrypted.bin
+[+] Encrypted (base64): <base64 output>
+[+] Decrypted message: Hello RSA from the mobile lab
+
+
+---
+
+📌 This tool was designed in Termux as part of the mobile Cryptography Lab project.
+
+
+---
+
+👤 Author: Sanni Babatunde Idris (Specia-cipher)
+🔗 GitHub • LinkedIn • 📧 sannifreelancer@gmail.com
+
+
+---Next stop ECC
 
 ---
 
