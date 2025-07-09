@@ -1,0 +1,8 @@
+*.pem
+*.bin
+*.b64
+*.sig
+*.txt
+*.enc
+*.json
+key.enc

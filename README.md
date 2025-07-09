@@ -1,322 +1,211 @@
-# 🔒 Cryptography Lab
+#SANNI-BABATUNDE-IDRIS
+sannifreelancer6779@gmail.com
+@Linkedin
+https://www.linkedin.com/in/sanni-idris-89917a262?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
 
-A hands-on Python lab for exploring cryptography and security concepts. Built for tinkering, learning, and demonstrating skills in practical cryptography.  
 
-This lab runs seamlessly in Termux (Android) and Linux environments—making cryptographic experiments possible even from a mobile setup.  
 
----
+# 🔐 Cryptography Lab
 
-## 🚀 Current Tools
-- 🔐 Hashing Tool — Multi-algorithm hashing with CLI flexibility.
-- 🗝 Symmetric Encryption Tool — Simple AES encryption and decryption.
 
-## 📡 Roadmap
-##- Asymmetric Encryption (RSA, ECC)
-##- Digital Signatures and Verification
-##- Key Exchange Protocols (Diffie-Hellman, etc.)
-- File encryption/decryption utilities
-- Password managers & key derivation functions (PBKDF2, bcrypt)
+A collection of Python-based cryptographic tools for learning, experimentation, and practical application. This lab demonstrates various cryptographic primitives and concepts, including RSA, ECC, digital signatures, symmetric encryption, Diffie-Hellman key exchange, hybrid encryption, and password hashing.
+
+_All tools authored by Sanni Idris (Specia-cipher)_
 
 ---
 
-## 📂 Tools
+## 📑 Table of Contents
+1. [RSA Tool](#rsa-tool)
+2. [ECC Tool](#ecc-tool)
+3. [Digital Signature Tools](#digital-signature-tools)
+4. [Symmetric Encryption](#symmetric-encryption)
+5. [Diffie-Hellman Key Exchange](#diffie-hellman-key-exchange)
+6. [File Encryption Tool](#file-encryption-tool)
+7. [Hybrid Encryption Tool](#hybrid-encryption-tool)
+8. [Password Manager Tool](#password-manager-tool)
 
-### 🔐 Hashing Tool
-A flexible CLI utility for hashing strings or files using multiple algorithms.
+---
 
-**Features**
-- Supports SHA-1, SHA-256, SHA-3, BLAKE2, MD5, and more.
-- Optional salting for password-like hashing.
-- Output formats: HEX or Base64.
-- Verbose mode for detailed outputs.
-- Lists all supported algorithms.
+## 🛠 RSA Tool
+Generate RSA key pairs, encrypt/decrypt files, and create digital signatures.
 
-**Usage**
+**Usage:**
 ```bash
-# List available algorithms
-python hashing_tool.py --list
-
-# Hash a simple message (default: sha256)
-python hashing_tool.py -m "Hello, world!"
-
-# Hash a file with SHA-512 and base64 output
-python hashing_tool.py -f testfile.txt -a sha512 -o base64 -v
-
-
----
-
-🗝 Symmetric Encryption Tool
-
-Encrypt and decrypt text securely using Fernet (AES under the hood).
-
-Features
-
-Generates and stores a secure encryption key (secret.key).
-
-Encrypts plaintext messages into ciphertext.
-
-Decrypts ciphertext back into plaintext.
-
-Simple and beginner-friendly API.
-
-
-Usage
-
-# Generate a new encryption key
-python symmetric_encryption.py
-
-# Encrypt a message
-python symmetric_encryption.py -e "This is secret"
-
-# Decrypt a message
-python symmetric_encryption.py -d <encrypted_message>
-
-Author Sanni Babatunde Idris (Specia-cipher)
-🔗 GitHub | LinkedIn
-
-
----
-
-
-## Roadmap checklist 
-
-
-## 🔐 RSA Tool
-
-A command-line utility to generate RSA keys, encrypt messages, and decrypt ciphertexts.
-
-### Features
-- Generate 2048-bit RSA key pair (`private_key.pem`, `public_key.pem`)
-- Encrypt messages and save to file (`encrypted.bin`) or view as base64
-- Decrypt ciphertexts from files or directly from base64 strings
-- Built-in error handling for missing keys and malformed inputs
-
-### Usage
-
-#### Generate RSA Keys
-```bash
+# Generate RSA keys
 python rsa_tool.py --generate-keys
 
-## Encrypt a Message
+# Encrypt a file
+python rsa_tool.py --encrypt secret.txt --out secret.enc --pubkey rsa_public.pem
 
-python rsa_tool.py --encrypt "Hello RSA from the mobile lab"
+# Decrypt a file
+python rsa_tool.py --decrypt secret.enc --out secret.txt --privkey rsa_private.pem
 
-## Decrypt from File
+# Sign a file
+python rsa_tool.py --sign secret.txt --privkey rsa_private.pem
 
-python rsa_tool.py --decrypt-file encrypted.bin
+# Verify a signature
+python rsa_tool.py --verify secret.txt --pubkey rsa_public.pem --signature signature.sig
 
-##Decrypt from Base64 String
-
-python rsa_tool.py --decrypt-string "paste_base64_ciphertext_here"
-
-
----
-
-Example Run
-
-[+] RSA keys generated and saved as private_key.pem and public_key.pem
-[+] Message encrypted and saved to encrypted.bin
-[+] Encrypted (base64): <base64 output>
-[+] Decrypted message: Hello RSA from the mobile lab
+Author: Sanni Idris (Specia-cipher)
 
 
 ---
 
-📌 This tool was designed in Termux as part of the mobile Cryptography Lab project.
+🪙 ECC Tool
 
+Elliptic Curve Cryptography for key generation, encryption, and digital signatures.
 
----
+Usage:
 
-👤 Author: Sanni Babatunde Idris (Specia-cipher)
-🔗 GitHub • LinkedIn • 📧 sannifreelancer@gmail.com
-
-
----
-
----
-
-### 3️⃣ ECC Tool (`ecc_tool.py`)
-
-Elliptic Curve Cryptography (ECC) utilities for key generation, digital signing, and signature verification.
-
-#### 📦 Features
-- Generate ECC private and public key pairs.
-- Sign messages and save signatures to file (`signature.sig`) and base64 format (`signature.b64`).
-- Verify signatures from file or base64 strings.
-
-#### ⚡ Usage
-
-```bash
-# Generate ECC key pair
+# Generate ECC keys
 python ecc_tool.py --generate-keys
 
-# Sign a message
-python ecc_tool.py --sign "Hello ECC mobile lab!"
+# Encrypt a file
+python ecc_tool.py --encrypt message.txt --out message.enc --pubkey ecc_public.pem
 
-# Verify signature from saved file
-python ecc_tool.py --verify-file "Hello ECC mobile lab!" signature.sig
+# Decrypt a file
+python ecc_tool.py --decrypt message.enc --out message.txt --privkey ecc_private.pem
 
-# Verify signature from base64 string
-python ecc_tool.py --verify-base64 "Hello ECC mobile lab!" "<your_base64_signature>"
+# Sign a file
+python ecc_tool.py --sign message.txt --privkey ecc_private.pem
 
----
+# Verify a signature
+python ecc_tool.py --verify message.txt --pubkey ecc_public.pem --signature signature.sig
 
-📁 Files Generated
-
-ecc_private_key.pem: ECC private key.
-
-ecc_public_key.pem: ECC public key.
-
-signature.sig: Binary signature file.
-
-signature.b64: Base64-encoded signature.
-
-
-✍️ Author
-
-Sanni Babatunde Idris (Specia-cipher)
-GitHub • LinkedIn
-
----
-
-## 🔏 RSA Digital Signature Tool
-
-A modular tool for generating RSA signing keys, signing messages, and verifying signatures.
-
-### Features
-- Generate RSA signing key pair.
-- Sign any message string.
-- Verify signatures from `.sig` or base64 strings.
-
-### Usage
-
-**Generate keys:**
-```bash
-python rsa_sign_tool.py --generate-keys
-
-## Sign a message
-python rsa_sign_tool.py --sign "Hello RSA signing"
-
-## Verify signature from file
-python rsa_sign_tool.py --verify "Hello RSA signing" rsa_signature.sig
-
-## Verify signature from Base64
-python rsa_sign_tool.py --verify-base64 "Hello RSA signing" "<base64_signature>"
-
----
-
-
-## ECC Digital Signature Tool
-
-A modular tool for Elliptic Curve signing and verification.
-
-Features
-
-Generate ECC signing key pair.
-
-Sign any message string.
-
-Verify signatures from .sig or base64 strings.
-
-
-Usage
-
-## Generate keys 
-python ecc_sign_tool.py --generate-keys
-
-##Sign a message
-
-python ecc_sign_tool.py --sign "Hello ECC signing"
-
-## Verify signature from file:
-
-python ecc_sign_tool.py --verify "Hello ECC signing" ecc_signature.sig
-
-#Verify signature from base64:
-
-python ecc_sign_tool.py --verify-base64 "Hello ECC signing" "<base64_signature>"
+Author: Sanni Idris (Specia-cipher)
 
 
 ---
 
-## Diffie-Hellman Key Exchange Tool
+✍ Digital Signature Tools
 
-This tool demonstrates the classic Diffie-Hellman (DH) key exchange protocol.
+Standalone tools for creating and verifying RSA/ECC signatures.
 
-Features
+Usage:
 
-#Generate DH parameters once.
+# Sign a file (RSA)
+python rsa_sign_tool.py --sign file.txt --privkey rsa_sign_private_key.pem
 
-Generate key pairs for participants (Alice & Bob).
+# Verify signature (RSA)
+python rsa_sign_tool.py --verify file.txt --pubkey rsa_sign_public_key.pem --signature file.sig
 
-Compute shared secret securely.
+# Sign a file (ECC)
+python ecc_sign_tool.py --sign file.txt --privkey ecc_sign_private_key.pem
 
-Verbose debugging to understand the process.
+# Verify signature (ECC)
+python ecc_sign_tool.py --verify file.txt --pubkey ecc_sign_public_key.pem --signature file.sig
+
+Author: Sanni Idris (Specia-cipher)
 
 
-Usage
+---
 
-## Generate DH parameters:
+🔒 Symmetric Encryption
 
+Encrypt and decrypt files using AES-256 in CBC mode.
+
+Usage:
+
+# Encrypt a file
+python symmetric_encryption.py --encrypt plain.txt --out encrypted.bin --password "mypassword123"
+
+# Decrypt a file
+python symmetric_encryption.py --decrypt encrypted.bin --out decrypted.txt --password "mypassword123"
+
+Author: Sanni Idris (Specia-cipher)
+
+
+---
+
+🔄 Diffie-Hellman Key Exchange
+
+Tool for generating shared secrets over an insecure channel.
+
+Usage:
+
+# Generate DH parameters
 python diffie_hell_tool.py --generate-params
 
-##Generate key pair (run for Alice & Bob):
-
+# Generate keys for Alice
 python diffie_hell_tool.py --generate-keys
+mv dh_public_key.pem alice_public.pem
+mv dh_private_key.pem alice_private.pem
 
-##Compute shared secret (Alice using Bob’s public key):
+# Generate keys for Bob
+python diffie_hell_tool.py --generate-keys
+mv dh_public_key.pem bob_public.pem
+mv dh_private_key.pem bob_private.pem
 
-python diffie_hell_tool.py --compute-secret bob_public.pem --verbose
+# Compute shared secrets
+mv alice_private.pem dh_private_key.pem
+python diffie_hell_tool.py --compute-secret bob_public.pem
+mv dh_shared_secret.bin alice_secret.bin
 
-## Compute  shared secret (Bob using Alice’s public key):
+mv bob_private.pem dh_private_key.pem
+python diffie_hell_tool.py --compute-secret alice_public.pem
+mv dh_shared_secret.bin bob_secret.bin
 
-python diffie_hell_tool.py --compute-secret alice_public.pem --verbose
-
-## Compare secrets:
-
+# Verify secrets match
 cmp alice_secret.bin bob_secret.bin && echo "[+] Secrets match!"
 
-
----
-
-👨🏽‍💻 Created by Sanni Babatunde Idris (Specia-cipher)
-📂 GitHub Repo
-📧 sannifreelancer@gmail.com
-🔗 LinkedIn
-
----
-
-📝 Development Environment
-
-Language: Python 3.x
-
-Environment: Termux (Android), Kali Linux, WSL2
-
-Version Control: Git & GitHub
-
-Dependencies: cryptography, hashlib, argparse
-
+Author: Sanni Idris (Specia-cipher)
 
 
 ---
 
-🙋‍♂️ Contributions
+📂 File Encryption Tool
 
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+AES-CBC encryption and decryption for files using a password.
+
+Usage:
+
+# Encrypt a file
+python file_encryption_tool.py --encrypt secret.txt --out secret.enc --password "mypassword123"
+
+# Decrypt a file
+python file_encryption_tool.py --decrypt secret.enc --out secret_decrypted.txt --password "mypassword123"
+
+Author: Sanni Idris (Specia-cipher)
+
+
+---
+
+🌐 Hybrid Encryption Tool
+
+Combines RSA (for key exchange) and AES (for file encryption).
+
+Usage:
+
+# Generate RSA keys
+python hybrid_encryption_tool.py --generate-keys
+
+# Encrypt a file
+python hybrid_encryption_tool.py --encrypt message.txt --out message.enc --pubkey rsa_public.pem
+
+# Decrypt a file
+python hybrid_encryption_tool.py --decrypt message.enc --out decrypted.txt --privkey rsa_private.pem
+
+Author: Sanni Idris (Specia-cipher)
 
 
 ---
 
-👨‍💻 Author
+🔑 Password Manager Tool
 
-Sanni Babatunde Idris (Specia-cipher)
-📧 sannifreelancer@gmail.com
-🔗 GitHub | LinkedIn
-https://github.com/sanni-idris
+Hashes and verifies passwords using PBKDF2 and bcrypt. Interactive CLI.
 
-https://linkedin.com/in/sanni-idris-89917a262
----
+Usage:
 
-Thank you for checking out my Cryptography Lab. More tools coming soon… 🚀
+# Run tool
+python password_manager_tool.py
 
----
+# Select option:
+# 1. Hash Password
+# 2. Verify Password
+
+Author: Sanni Idris (Specia-cipher)
+
+
+## CONNECT WITH ME ON LINKEDIN 
+
+https://www.linkedin.com/in/sanni-idris-89917a262?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
