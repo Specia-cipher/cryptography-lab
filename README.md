@@ -1,103 +1,176 @@
-# Cryptography Lab
-This lab explores practical cryptography concepts and implementations using Python in Termux.
+# 🔒 Cryptography Lab
 
+A hands-on Python lab for exploring cryptography and security concepts. Built for tinkering, learning, and demonstrating skills in practical cryptography.  
 
-##
-
-# Cryptography Lab
-
-## Project Overview
-
-This Cryptography Lab is a hands-on project focused on developing practical cryptographic tools in Python. The lab emphasizes core cryptographic concepts such as hashing and asymmetric encryption, implemented as user-friendly command-line utilities. It serves both as a learning resource and a technical portfolio demonstrating solid cryptography skills.
-
-## Project Goals
-
-- Develop practical cryptographic tools supporting multiple algorithms and flexible usage.  
-- Implement secure cryptographic primitives including:  
-  - Hashing with multiple algorithms and output formats  
-  - Asymmetric encryption (RSA) with key generation, encryption, and decryption  
-- Maintain clear, concise documentation explaining tool usage and cryptographic concepts.  
-- Use Git and GitHub for version control, ensuring reproducibility and collaboration readiness.  
-- Build a modular, extensible codebase for future cryptographic functions (digital signatures, symmetric encryption, key exchange, etc.).  
-- Explore cryptography development in diverse environments, including Termux on Android.  
-- Create a portfolio-quality project showcasing technical skills and understanding of cryptography.
-
-## Current Features
-
-- **Hashing Tool:** Supports multiple hashing algorithms (SHA-256, SHA-1, MD5, SHA-3, BLAKE2, etc.) with options to list available algorithms.  
-- **Asymmetric Encryption:** Basic RSA implementation for key generation, encryption, and decryption (coming soon to the repo).  
-
-## Usage
-
-### Hashing Tool
-
-- Hash a message (default SHA-256):
-
-##
-
-python hashing_tool.py "Your message here"
-
-##
-
-
-- Hash with a specific algorithm:
-
-##
-
-
-python hashing_tool.py "Your message here" -a sha1
-
-##
-
-
-- List all supported hash algorithms:
-
-
-##
-
-python hashing_tool.py --list
-
-##
-
-
-### Asymmetric Encryption
-
-*(To be added with usage examples once implemented)*
-
-## Roadmap
-
-- Expand asymmetric encryption features with key management and file encryption.  
-- Add digital signatures and verification tools.  
-- Implement symmetric encryption utilities (AES, ChaCha20).  
-- Enhance hashing tool with file hashing and salting options.  
-- Improve documentation with tutorials and cryptographic background.
-
-## Development Environment
-
-- Developed using Python 3.x in Termux on Android and Linux environments.  
-- Version controlled with Git and hosted on GitHub for collaboration and tracking.
+This lab runs seamlessly in Termux (Android) and Linux environments—making cryptographic experiments possible even from a mobile setup.  
 
 ---
 
-Feel free to contribute or raise issues to help improve this lab!
+## 🚀 Current Tools
+- 🔐 Hashing Tool — Multi-algorithm hashing with CLI flexibility.
+- 🗝 Symmetric Encryption Tool — Simple AES encryption and decryption.
+
+## 📡 Roadmap
+- Asymmetric Encryption (RSA, ECC)
+- Digital Signatures and Verification
+- Key Exchange Protocols (Diffie-Hellman, etc.)
+- File encryption/decryption utilities
+- Password managers & key derivation functions (PBKDF2, bcrypt)
+
+---
+
+## 📂 Tools
+
+### 🔐 Hashing Tool
+A flexible CLI utility for hashing strings or files using multiple algorithms.
+
+**Features**
+- Supports SHA-1, SHA-256, SHA-3, BLAKE2, MD5, and more.
+- Optional salting for password-like hashing.
+- Output formats: HEX or Base64.
+- Verbose mode for detailed outputs.
+- Lists all supported algorithms.
+
+**Usage**
+```bash
+# List available algorithms
+python hashing_tool.py --list
+
+# Hash a simple message (default: sha256)
+python hashing_tool.py -m "Hello, world!"
+
+# Hash a file with SHA-512 and base64 output
+python hashing_tool.py -f testfile.txt -a sha512 -o base64 -v
 
 
-## Author
+Perfect. That’s the professional developer way—every tool feels like a mini-project with its own little “signature block” at the end.
 
-Created by Sanni Babatunde Idris (Specia-cipher) 
-
-## Github 
-
-https://github.com/sanni-idris 
-
-## Email 
-sannifreelancer@gmail.com
-+23477500805
-
-#Linkedin
-
-https://www.linkedin.com/in/sanni-idris-89917a262?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
+Here’s your redesigned, future-proof README.md:
 
 
+---
 
-*Thank you for checking out my Cryptography Lab! Contributions and feedback are welcome.
+# 🔒 Cryptography Lab
+
+A hands-on Python lab for exploring cryptography and security concepts. Built for tinkering, learning, and demonstrating skills in practical cryptography.  
+
+This lab runs seamlessly in Termux (Android) and Linux environments—making cryptographic experiments possible even from a mobile setup.  
+
+---
+
+## 🚀 Current Tools
+- 🔐 Hashing Tool — Multi-algorithm hashing with CLI flexibility.
+- 🗝 Symmetric Encryption Tool — Simple AES encryption and decryption.
+
+## 📡 Roadmap
+- Asymmetric Encryption (RSA, ECC)
+- Digital Signatures and Verification
+- Key Exchange Protocols (Diffie-Hellman, etc.)
+- Steganography Utilities (Hide data in images, audio)
+- File encryption/decryption utilities
+- Password managers & key derivation functions (PBKDF2, bcrypt)
+
+---
+
+## 📂 Tools
+
+### 🔐 Hashing Tool
+A flexible CLI utility for hashing strings or files using multiple algorithms.
+
+**Features**
+- Supports SHA-1, SHA-256, SHA-3, BLAKE2, MD5, and more.
+- Optional salting for password-like hashing.
+- Output formats: HEX or Base64.
+- Verbose mode for detailed outputs.
+- Lists all supported algorithms.
+
+**Usage**
+```bash
+# List available algorithms
+python hashing_tool.py --list
+
+# Hash a simple message (default: sha256)
+python hashing_tool.py -m "Hello, world!"
+
+# Hash a file with SHA-512 and base64 output
+python hashing_tool.py -f testfile.txt -a sha512 -o base64 -v
+
+Author Sanni Babatunde Idris (Specia-cipher)
+🔗 GitHub | LinkedIn
+
+
+---
+
+🗝 Symmetric Encryption Tool
+
+Encrypt and decrypt text securely using Fernet (AES under the hood).
+
+Features
+
+Generates and stores a secure encryption key (secret.key).
+
+Encrypts plaintext messages into ciphertext.
+
+Decrypts ciphertext back into plaintext.
+
+Simple and beginner-friendly API.
+
+
+Usage
+
+# Generate a new encryption key
+python symmetric_encryption.py
+
+# Encrypt a message
+python symmetric_encryption.py -e "This is secret"
+
+# Decrypt a message
+python symmetric_encryption.py -d <encrypted_message>
+
+Author Sanni Babatunde Idris (Specia-cipher)
+🔗 GitHub | LinkedIn
+
+
+---
+
+📦 Additions
+
+(Future tools will appear here in this format)
+
+
+---
+
+📝 Development Environment
+
+Language: Python 3.x
+
+Environment: Termux (Android), Kali Linux, WSL2
+
+Version Control: Git & GitHub
+
+Dependencies: cryptography, hashlib, argparse
+
+
+
+---
+
+🙋‍♂️ Contributions
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+
+---
+
+👨‍💻 Author
+
+Sanni Babatunde Idris (Specia-cipher)
+📧 sannifreelancer@gmail.com
+🔗 GitHub | LinkedIn
+https://github.com/sanni-idris
+
+https://linkedin.com/in/sanni-idris-89917a262
+---
+
+Thank you for checking out my Cryptography Lab. More tools coming soon… 🚀
+
+---
